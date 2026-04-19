@@ -1,25 +1,24 @@
 public class HelloApp {
 
     public static void main(String[] args) {
-        String finalName;
+        String finalOutput;
 
         if (args.length > 0) {
             StringBuilder nameBuilder = new StringBuilder();
-            
-            // UC5 Requirement: Using Enhanced For Loop (for-each)
-            for (String val : args) {
-                // Add a comma and space before every name except the first one
-                if (nameBuilder.length() > 0) {
-                    nameBuilder.append(", ");
-                }
-                nameBuilder.append(val);
+
+            // UC6 Requirement: Add names and delimiters in the loop
+            for (String name : args) {
+                nameBuilder.append(name).append(", ");
             }
-            finalName = nameBuilder.toString();
+
+            // At this point, nameBuilder looks like: "Amit, Rahul, "
+            // UC6 Requirement: Use substring to remove the trailing ", "
+            String tempString = nameBuilder.toString();
+            finalOutput = tempString.substring(0, tempString.length() - 2);
         } else {
-            // Default message if no arguments provided
-            finalName = "World";
+            finalOutput = "World";
         }
 
-        System.out.println("Hello " + finalName + "!");
+        System.out.println("Hello " + finalOutput + "!");
     }
 }
