@@ -1,24 +1,19 @@
 public class HelloApp {
 
     public static void main(String[] args) {
-        String finalOutput;
+        String finalNames;
 
+        // Check if arguments are provided
         if (args.length > 0) {
-            StringBuilder nameBuilder = new StringBuilder();
-
-            // UC6 Requirement: Add names and delimiters in the loop
-            for (String name : args) {
-                nameBuilder.append(name).append(", ");
-            }
-
-            // At this point, nameBuilder looks like: "Amit, Rahul, "
-            // UC6 Requirement: Use substring to remove the trailing ", "
-            String tempString = nameBuilder.toString();
-            finalOutput = tempString.substring(0, tempString.length() - 2);
+            // UC7 Requirement: Efficiently concatenate using String.join()
+            // This replaces the manual loops and substring methods from UC5 and UC6
+            finalNames = String.join(", ", args);
         } else {
-            finalOutput = "World";
+            // Default greeting
+            finalNames = "World";
         }
 
-        System.out.println("Hello " + finalOutput + "!");
+        // Print the result
+        System.out.println("Hello " + finalNames + "!");
     }
 }
