@@ -1,30 +1,25 @@
 public class HelloApp {
 
     public static void main(String[] args) {
+        String finalName;
 
-        String name;
-
-        // Check if arguments are provided
         if (args.length > 0) {
             StringBuilder nameBuilder = new StringBuilder();
-
-            // Loop through all arguments
-            for (int i = 0; i < args.length; i++) {
-                nameBuilder.append(args[i]);
-
-                // Add comma if not the last element
-                if (i < args.length - 1) {
+            
+            // UC5 Requirement: Using Enhanced For Loop (for-each)
+            for (String val : args) {
+                // Add a comma and space before every name except the first one
+                if (nameBuilder.length() > 0) {
                     nameBuilder.append(", ");
                 }
+                nameBuilder.append(val);
             }
-
-            name = nameBuilder.toString();
+            finalName = nameBuilder.toString();
         } else {
-            // Default value if no arguments
-            name = "World";
+            // Default message if no arguments provided
+            finalName = "World";
         }
 
-        // Print the greeting
-        System.out.println("Hello " + name);
+        System.out.println("Hello " + finalName + "!");
     }
 }
